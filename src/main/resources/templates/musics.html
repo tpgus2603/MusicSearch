@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.css}"
+          href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2>검색 목록</h2>
+    </div>
+
+    <hr class="my-4">
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>아티스트 이름</th>
+                <th>앨범 이름</th>
+                <th>발매일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="music : ${musicList.results}">
+                <td th:text="${music['artistName']}">Artist Name</td>
+                <td th:text="${music['collectionName']}">Collection Name</td>
+                <td th:text="${music['releaseDate']}">Release Date</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div> <!-- /container -->
+
+</body>
+</html>

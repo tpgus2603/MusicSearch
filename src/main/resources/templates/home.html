@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.css}"
+          href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2>홈 화면</h2>
+    </div>
+
+    <form method="get" action="/home" class="form-inline">
+        <div class="row">
+            <div class="col">
+                <input type="text" name="term" class="form-control" placeholder="아티스트 이름"/>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-secondary mb-2">검색</button>
+            </div>
+        </div>
+    </form>
+
+</div> <!-- /container -->
+
+</body>
+</html>
