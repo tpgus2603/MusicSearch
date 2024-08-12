@@ -19,7 +19,7 @@ public class HomeController {
     @Autowired
     MusicService service;
 
-    // 홈 화면 표시
+     //홈 화면 표시
     @GetMapping
     public String showHomePage() {
         return "home";  // home.html 뷰를 반환
@@ -37,8 +37,14 @@ public class HomeController {
     }
 
     @GetMapping("/likes")
-    public List<FavoriteMusic> getLikes() {
-        return service.getLikes();
+    public String getLikes(Model model) {
+        List<FavoriteMusic> likes = service.getLikes();
+        if(!likes.isEmpty())
+        {
+            model.addAttribute("likes",likes);
+            return "likes";
+        }
+        return"redirect:/home";
     }
 
     @PostMapping("/likes")
@@ -47,7 +53,7 @@ public class HomeController {
         return "redirect:/home";
     }
 
-    @DeleteMapping("/likes/{id}")
+    @DeleteMapping("/likes/{id}"    )
     public void deleteid(@PathVariable String id) {
         service.deleteFavorite(id);
     }
