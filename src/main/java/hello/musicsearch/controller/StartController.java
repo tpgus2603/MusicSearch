@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class StartController {
 
-    @RequestMapping("/home")
-    public String showHomePage() {
-        return "home"; // home.html 뷰를 반환
+    @RequestMapping("/")
+    public String home() {
+        return "redirect:/home";
     }
 }

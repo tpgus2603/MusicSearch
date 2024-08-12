@@ -20,6 +20,7 @@
                 <th>아티스트 이름</th>
                 <th>앨범 이름</th>
                 <th>발매일</th>
+                <th>좋아요</th>
             </tr>
             </thead>
             <tbody>
@@ -27,6 +28,14 @@
                 <td th:text="${music['artistName']}">Artist Name</td>
                 <td th:text="${music['collectionName']}">Collection Name</td>
                 <td th:text="${music['releaseDate']}">Release Date</td>
+                <td>
+                    <form th:action="@{/home/likes}" method="post">
+                        <input type="hidden" name="artistName" th:value="${music['artistName']}"/>
+                        <input type="hidden" name="collectionName" th:value="${music['collectionName']}"/>
+                        <input type="hidden" name="releaseDate" th:value="${music['releaseDate']}"/>
+                        <button type="submit" class="btn btn-primary">좋아요</button>
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>
