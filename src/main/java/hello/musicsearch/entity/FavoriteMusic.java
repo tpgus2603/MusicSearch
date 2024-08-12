@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 public class FavoriteMusic {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(length=32) private String collectionId;
+    @Column(length=32) private Long id;
     private String artistName;
     private String collectionName;
     private String releaseDate;

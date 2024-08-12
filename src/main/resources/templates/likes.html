@@ -29,7 +29,7 @@
                 <td th:text="${like.getCollectionName()}">Collection Name</td>
                 <td th:text="${like.getReleaseDate()}">Release Date</td>
                 <td>
-                    <form th:action="@{/home/likes/{id}(id=${like.getCollectionId()})}" method="post">
+                    <form th:action="@{/home/likes/{id}(id=${like.getId()})}" method="post">
                         <input type="hidden" name="_method" value="delete"/>
                         <button type="submit" class="btn btn-danger">삭제</button>
                     </form>

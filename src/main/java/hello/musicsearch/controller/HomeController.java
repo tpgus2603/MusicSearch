@@ -4,6 +4,7 @@ import hello.musicsearch.dto.FavoriteDto;
 import hello.musicsearch.dto.MusicList;
 import hello.musicsearch.entity.FavoriteMusic;
 import hello.musicsearch.service.MusicService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@Slf4j
 @RequestMapping("/home")
 public class HomeController {
 
@@ -53,8 +55,12 @@ public class HomeController {
         return "redirect:/home";
     }
 
-    @DeleteMapping("/likes/{id}"    )
-    public void deleteid(@PathVariable String id) {
+    @DeleteMapping("/likes/{id}")
+    public String deleteid(@PathVariable Long id) {
+        System.out.println("p1");
         service.deleteFavorite(id);
+        log.info("deleteid={}",id);
+
+        return "redirect:/home";
     }
 }

@@ -42,7 +42,7 @@ public class MusicService {
     public List<FavoriteMusic> getLikes() {
         return albumsRepo.findAll();
     }
-    public void deleteFavorite(String id) {
+    public void deleteFavorite(Long id) {
         try {
             albumsRepo.deleteById(id);
         } catch (DataAccessException e) {
